@@ -4,21 +4,23 @@ import { addTodo } from "../features/todo/todoSlice";
 
 function AddTodo() {
   const [input, setInput] = useState("");
+  const [error, setError] = useState("");
   const dispatch = useDispatch();
 
   const addTodoHandler = (e) => {
     e.preventDefault();
-    if (!input) <div>"please Add your todo " </div>;
+    if (!input) {
+      setError("Please add your todo");
+      return;
+    }
     dispatch(addTodo(input));
     setInput("");
+    setError("");
   };
 
   return (
     <div>
-      <form
-        onSubmit={addTodoHandler}
-        style={{ backgorundColor: "olive", height: "25vh" }}
-      >
+      <form onSubmit={addTodoHandler} style={{ height: "25vh" }}>
         <input
           type="text"
           value={input}
@@ -47,9 +49,14 @@ function AddTodo() {
             color: "#fff",
           }}
         >
-          Add Todos
+          Add Todo
         </button>
       </form>
+      {error && (
+        <div style={{ color: "red", fontSize: "large", fontWeight: "bold" }}>
+          {error}
+        </div>
+      )}
     </div>
   );
 }
