@@ -8,7 +8,7 @@ function App() {
   return (
     <Provider store={store}> 
       <div className="todo-container" style={{display:'flex',flexDirection:'column',textAlign:'center'}}>
-        <h2>TaskTracker</h2>
+        <h2>Manage Your Todos</h2>
         <AddTodo />
         <Todos />
       </div>
