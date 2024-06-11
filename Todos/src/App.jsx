@@ -8,7 +8,7 @@ function App() {
   return (
     <Provider store={store}> 
       <div className="todo-container" style={{display:'flex',flexDirection:'column',textAlign:'center'}}>
-        <h2>Redux Toolkit:</h2>
+        <h2>TaskTracker</h2>
         <AddTodo />
         <Todos />
       </div>
